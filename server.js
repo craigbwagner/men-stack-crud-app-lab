@@ -7,7 +7,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
-	res.send('hello');
+	res.render('index.ejs');
 });
 
 app.listen(3000);
