@@ -10,4 +10,8 @@ app.get('/', (req, res) => {
 	res.render('index.ejs');
 });
 
+app.get('/books/new', (req, res) => {
+	res.render('books/new.ejs');
+});
+
 app.listen(3000);
