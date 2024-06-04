@@ -14,4 +14,8 @@ app.get('/books/new', (req, res) => {
 	res.render('books/new.ejs');
 });
 
+app.post('/books', async (req, res) => {
+	await Fruit.create(req.body);
+});
+
 app.listen(3000);
