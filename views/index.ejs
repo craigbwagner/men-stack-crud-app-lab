@@ -6,19 +6,22 @@
   <title>Library</title>
 </head>
 <body>
-  <h1>Home Page</h1>
+  <h1>Personal Library</h1>
   <p><a href='/books/new'>Add new book</a></p>
   <table>
     <thead>
       <tr>
         <th scope='col'>Title</th>
         <th scope='col'>Author</th>
-        <th scope='col'>Year Published</th>
-        <th scope='col'>Page Count</th>
       </tr>
     </thead>
     <tbody>
-
+      <% books.forEach(book => { %>
+        <tr>
+          <th scope='row'><a href='/books/<%= book._id %>'><%= book.title %></a></th>
+          <td><%= book.author %></td>
+        </tr>
+      <% }); %>
     </tbody>
   </table>
 </body>
