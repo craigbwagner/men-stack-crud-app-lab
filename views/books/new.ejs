@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Book</title>
+</head>
+<body>
+  <a href='/'>Return to Book List</a>
+  <form action='/books' method='POST'>
+    <label for='title'>Book Title:</label>
+    <input type='text' name='title' />
+
+    <label for='author'>Author:</label>
+    <input type='text' name='author' />
+
+    <label for='pageCount'>Number of Pages:</label>
+    <input type='number' name='pageCount'/>
+
+    <label for='publicationYear'>Year Published:</label>
+    <input type='number' name='publicationYear' />
+
+    <button type='submit'>Submit</button>
+  </form>
+</body>
+</html>
