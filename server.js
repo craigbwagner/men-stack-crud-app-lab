@@ -26,4 +26,9 @@ app.post('/books', async (req, res) => {
 	res.redirect('/');
 });
 
+app.get('/books/:bookId', async (req, res) => {
+	const foundBook = await Book.findById(req.params.bookId);
+	res.render('books/show.ejs', { book: foundBook });
+});
+
 app.listen(3000);
