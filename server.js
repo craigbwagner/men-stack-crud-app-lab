@@ -22,6 +22,7 @@ app.get('/books/new', (req, res) => {
 
 app.post('/books', async (req, res) => {
 	await Book.create(req.body);
+	res.redirect('/');
 });
 
 app.listen(3000);
