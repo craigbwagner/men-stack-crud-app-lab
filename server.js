@@ -12,8 +12,9 @@ mongoose.connection.on('connected', () => {
 });
 const Book = require('./models/book');
 
-app.get('/', (req, res) => {
-	res.render('index.ejs');
+app.get('/', async (req, res) => {
+	const allBooks = await Book.find();
+	res.render('index.ejs', { books: allBooks });
 });
 
 app.get('/books/new', (req, res) => {
