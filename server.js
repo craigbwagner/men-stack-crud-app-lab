@@ -21,14 +21,30 @@ app.get('/books/new', (req, res) => {
 	res.render('books/new.ejs');
 });
 
+app.get(
+	'/books/:bookId',
+	async (
+		req,
+		res
+	) => {
+		const foundBook =
+			await Book.findById(
+				req
+					.params
+					.bookId
+			);
+		res.render(
+			'books/show.ejs',
+			{
+				book: foundBook,
+			}
+		);
+	}
+);
+
 app.post('/books', async (req, res) => {
 	await Book.create(req.body);
 	res.redirect('/');
-});
-
-app.get('/books/:bookId', async (req, res) => {
-	const foundBook = await Book.findById(req.params.bookId);
-	res.render('books/show.ejs', { book: foundBook });
 });
 
 app.listen(3000);
