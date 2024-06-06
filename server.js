@@ -28,7 +28,7 @@ app.get('/books/new', (req, res) => {
 app.get('/books/:bookId', async (req, res) => {
 	const foundBook = await Book.findById(req.params.bookId);
 	res.render('books/show.ejs', {
-				book: foundBook,
+		book: foundBook,
 	});
 });
 
@@ -40,6 +40,16 @@ app.get('/books/:bookId/edit', async (req, res) => {
 app.post('/books', async (req, res) => {
 	console.log(req.body.publicationYear);
 	await Book.create(req.body);
+	res.redirect('/');
+});
+
+app.put('/books/:bookId', async (req, res) => {
+	await Book.findByIdAndUpdate(req.params.bookId, req.body);
+	res.redirect(`/books/${req.params.bookId}`);
+});
+
+app.delete('/books/:bookId', async (req, res) => {
+	await Book.findByIdAndDelete(req.params.bookId);
 	res.redirect('/');
 });
 

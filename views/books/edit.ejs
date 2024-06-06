@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit a Book</title>
+</head>
+<body>
+  <h1>Edit <em><%= book.title %></em></h1>
+  <form action="/books/<%=book._id%>?_method=PUT" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" value='<%= book.title %>' id="name" />
+    <br />
+    <label for="name">Author:</label>
+    <input type="text" name="author" value='<%= book.author %>' id="author" />
+    <br />
+    <label for="name">Year Published:</label>
+    <input type="number" name="publicationYear" value='<%= book.publicationYear %>' id="publicationYear" />
+    <br />
+    <label for="name">Page Count:</label>
+    <input type="number" name="pageCount" value='<%= book.pageCount %>' id="pageCount" />
+    <br />
+    <!-- update the button text -->
+    <button type="submit">Update Book</button>
+  </form>
+  <a href="/books/<%= book._id %>">Back to <%= book.title %></a>
+  <br />
+  <a href="/">Back to Library</a>
+</body>
+</html>
